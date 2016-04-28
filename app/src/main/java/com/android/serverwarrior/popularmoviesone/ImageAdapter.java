@@ -7,8 +7,24 @@ import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 
+import com.squareup.picasso.Picasso;
+
 public class ImageAdapter extends BaseAdapter {
     private Context mContext;
+
+    // references to our images
+    private Integer[] mThumbIds = {
+            R.drawable.pic1,
+            R.drawable.pic2,
+            R.drawable.pic3,
+            R.drawable.pic4,
+            R.drawable.pic5,
+            R.drawable.pic6,
+            R.drawable.pic7,
+            R.drawable.pic8,
+            R.drawable.pic9,
+            R.drawable.pic10
+    };
 
     public ImageAdapter(Context c) {
         mContext = c;
@@ -39,21 +55,9 @@ public class ImageAdapter extends BaseAdapter {
             imageView = (ImageView) convertView;
         }
 
-        imageView.setImageResource(mThumbIds[position]);
+        //imageView.setImageResource(mThumbIds[position]);
+       Picasso.with(mContext).load(mThumbIds[position]).into(imageView);
+
         return imageView;
     }
-
-    // references to our images
-    private Integer[] mThumbIds = {
-            R.drawable.pic1,
-            R.drawable.pic2,
-            R.drawable.pic3,
-            R.drawable.pic4,
-            R.drawable.pic5,
-            R.drawable.pic6,
-            R.drawable.pic7,
-            R.drawable.pic8,
-            R.drawable.pic9,
-            R.drawable.pic10
-    };
 }
