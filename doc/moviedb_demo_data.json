@@ -1,0 +1,127 @@
+{
+    "page":1,
+    "results":[
+        {
+            "poster_path":"\/rDT86hJCxnoOs4ARjrCiRej7pOi.jpg",
+            "adult":false,
+            "overview":"Following the events of Age of Ultron, the collective governments of the world pass an act designed to regulate all superhuman activity. This polarizes opinion amongst the Avengers, causing two factions to side with Iron Man or Captain America, which causes an epic battle between former allies.",
+            "release_date":"2016-04-27",
+            "genre_ids":[
+                28,
+                878,
+                53
+            ],
+            "id":271110,
+            "original_title":"Captain America: Civil War",
+            "original_language":"en",
+            "title":"Captain America: Civil War",
+            "backdrop_path":"\/m5O3SZvQ6EgD5XXXLPIP1wLppeW.jpg",
+            "popularity":53.556357,
+            "vote_count":180,
+            "video":false,
+            "vote_average":5.77
+        },
+        {
+            "poster_path":"\/6bCplVkhowCjTHXWv49UjRPn0eK.jpg",
+            "adult":false,
+            "overview":"Fearing the actions of a god-like Super Hero left unchecked, Gotham City’s own formidable, forceful vigilante takes on Metropolis’s most revered, modern-day savior, while the world wrestles with what sort of hero it really needs. And with Batman and Superman at war with one another, a new threat quickly arises, putting mankind in greater danger than it’s ever known before.",
+            "release_date":"2016-03-23",
+            "genre_ids":[
+                28,
+                12,
+                14
+            ],
+            "id":209112,
+            "original_title":"Batman v Superman: Dawn of Justice",
+            "original_language":"en",
+            "title":"Batman v Superman: Dawn of Justice",
+            "backdrop_path":"\/vsjBeMPZtyB7yNsYY56XYxifaQZ.jpg",
+            "popularity":33.312493,
+            "vote_count":1761,
+            "video":false,
+            "vote_average":5.68
+        },
+        {
+            "poster_path":"\/weUSwMdQIa3NaXVzwUoIIcAi85d.jpg",
+            "adult":false,
+            "overview":"Thirty years after defeating the Galactic Empire, Han Solo and his allies face a new threat from the evil Kylo Ren and his army of Stormtroopers.",
+            "release_date":"2015-12-15",
+            "genre_ids":[
+                28,
+                12,
+                878,
+                14
+            ],
+            "id":140607,
+            "original_title":"Star Wars: The Force Awakens",
+            "original_language":"en",
+            "title":"Star Wars: The Force Awakens",
+            "backdrop_path":"\/c2Ax8Rox5g6CneChwy1gmu4UbSb.jpg",
+            "popularity":30.006602,
+            "vote_count":3909,
+            "video":false,
+            "vote_average":7.63
+        },
+        {
+            "poster_path":"\/k1QUCjNAkfRpWfm1dVJGUmVHzGv.jpg",
+            "adult":false,
+            "overview":"Based upon Marvel Comics’ most unconventional anti-hero, DEADPOOL tells the origin story of former Special Forces operative turned mercenary Wade Wilson, who after being subjected to a rogue experiment that leaves him with accelerated healing powers, adopts the alter ego Deadpool. Armed with his new abilities and a dark, twisted sense of humor, Deadpool hunts down the man who nearly destroyed his life.",
+            "release_date":"2016-02-09",
+            "genre_ids":[
+                28,
+                12,
+                35
+            ],
+            "id":293660,
+            "original_title":"Deadpool",
+            "original_language":"en",
+            "title":"Deadpool",
+            "backdrop_path":"\/n1y094tVDFATSzkTnFxoGZ1qNsG.jpg",
+            "popularity":22.691128,
+            "vote_count":2868,
+            "video":false,
+            "vote_average":7.2
+        },
+        {
+            "poster_path":"\/vOipe2myi26UDwP978hsYOrnUWC.jpg",
+            "adult":false,
+            "overview":"An orphan boy is raised in the Jungle with the help of a pack of wolves, a bear and a black panther.",
+            "release_date":"2016-04-07",
+            "genre_ids":[
+                12,
+                18,
+                14
+            ],
+            "id":278927,
+            "original_title":"The Jungle Book",
+            "original_language":"en",
+            "title":"The Jungle Book",
+            "backdrop_path":"\/eIOTsGg9FCVrBc4r2nXaV61JF4F.jpg",
+            "popularity":20.37771,
+            "vote_count":380,
+            "video":false,
+            "vote_average":6.45
+        },
+        {
+            "poster_path":"\/jjBgi2r5cRt36xF6iNUEhzscEcb.jpg",
+            "adult":false,
+            "overview":"Twenty-two years after the events of Jurassic Park, Isla Nublar now features a fully functioning dinosaur theme park, Jurassic World, as originally envisioned by John Hammond.",
+            "release_date":"2015-06-09",
+            "genre_ids":[
+                28,
+                12,
+                878,
+                53
+            ],
+            "id":135397,
+            "original_title":"Jurassic World",
+            "original_language":"en",
+            "title":"Jurassic World",
+            "backdrop_path":"\/dkMD5qlogeRMiEixC4YNPUvax2T.jpg",
+            "popularity":17.067767,
+            "vote_count":4346,
+            "video":false,
+            "vote_average":6.64
+        }
+    ]
+}

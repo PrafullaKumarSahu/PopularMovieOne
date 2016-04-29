@@ -30,6 +30,10 @@ public class ImageAdapter extends BaseAdapter {
         mContext = c;
     }
 
+    /*public ImageAdapter(String[] movieDetails) {
+        //
+    }*/
+
     public int getCount() {
         return mThumbIds.length;
     }
@@ -56,7 +60,7 @@ public class ImageAdapter extends BaseAdapter {
         }
 
         //imageView.setImageResource(mThumbIds[position]);
-       Picasso.with(mContext).load(mThumbIds[position]).into(imageView);
+        Picasso.with(mContext).load(mThumbIds[position]).into(imageView);
 
         return imageView;
     }
