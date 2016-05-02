@@ -30,7 +30,6 @@ public class FetchMoviePoster extends AsyncTask<String[], Void,  List<Movie>> {
     private final String MOVIE_POSTER_SIZE ="w185";
 
     @Override
-    //    protected  String[][] doInBackground(String[]... params) {
     protected List<Movie> doInBackground(String[]... params) {
 
         HttpURLConnection urlConnection = null;
@@ -115,7 +114,8 @@ public class FetchMoviePoster extends AsyncTask<String[], Void,  List<Movie>> {
                 String poster = MOVIE_POSTER_BASE + MOVIE_POSTER_SIZE + movie.getString(MD_POSTER_PATH);
                 String overview = movie.getString(MD_OVERVIEW);
                 String voteAverage = movie.getString(MD_VOTE_AVG);
-                String releaseDate = getYear(movie.getString(MD_RELEASE_DATE));;
+                String releaseDate = getYear(movie.getString(MD_RELEASE_DATE));
+                
                 movies.add(new Movie(title, poster, overview, voteAverage, releaseDate));
             }
             return movies;
