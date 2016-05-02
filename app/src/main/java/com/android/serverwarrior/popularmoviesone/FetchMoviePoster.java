@@ -24,7 +24,6 @@ import java.util.Locale;
 /**
  * Created by Server Warrior on 5/1/2016.
  */
-// public class FetchMoviePoster extends AsyncTask<String[], Void,  String[][]> {
 public class FetchMoviePoster extends AsyncTask<String[], Void,  List<Movie>> {
 
     private final String LOG_TAG = FetchMoviePoster.class.getSimpleName();
@@ -119,7 +118,7 @@ public class FetchMoviePoster extends AsyncTask<String[], Void,  List<Movie>> {
             JSONObject moviePostersJson = new JSONObject(movieResponseJsonStr);
             JSONArray moviePosterArray = moviePostersJson.getJSONArray(MD_ARRAY_OF_MOVIES);
 
-            List<Movie> movies = new ArrayList<Movie>();
+            ArrayList<Movie> movies = new ArrayList<Movie>();
 
             for(int i = 0; i < moviePosterArray.length(); i++ ){
                 JSONObject movie = moviePosterArray.getJSONObject(i);

@@ -18,8 +18,8 @@ public class ImageAdapter extends ArrayAdapter<String> {
     private LayoutInflater mLayoutInflater;
     private int layoutId;
     private int imageViewID;
-    private FetchMoviePoster  moviePosters;
 
+   // private ArrayList<String> urls;
     // references to our images
 //    private Integer[] mThumbIds = {
 //            R.drawable.pic1,
@@ -45,8 +45,6 @@ public class ImageAdapter extends ArrayAdapter<String> {
         Log.v("Image View ID", imageViewID + "");//executing correctly
     }
 
-
-
     // create a new ImageView for each item referenced by the Adapter
     public View getView(int position, View convertView, ViewGroup parent) {//not called
 //        ImageView imageView;
@@ -68,13 +66,13 @@ public class ImageAdapter extends ArrayAdapter<String> {
         View v = convertView;
         String url;
         if(v == null){
-            v = mLayoutInflater.inflate(layoutId, parent, false);
+            v = this.mLayoutInflater.inflate(this.layoutId, parent, false);
         }
 
-        ImageView imageView = (ImageView) v.findViewById(imageViewID);
+        ImageView imageView = (ImageView) v.findViewById(this.imageViewID);
         url = getItem(position);
         Log.v("url", url);
-        Picasso.with(mContext).load(url).into(imageView);
+        Picasso.with(this.mContext).load(url).into(imageView);
         return v;
 
     }

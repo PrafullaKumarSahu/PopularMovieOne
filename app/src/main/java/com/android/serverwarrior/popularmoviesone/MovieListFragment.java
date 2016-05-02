@@ -22,8 +22,7 @@ public class MovieListFragment extends Fragment {
 
     private static final String STORED_MOVIES = "stored_movies";
 
-    public ImageAdapter mImageAdapter;
-    ImageAdapter mMoviePosterAdapter;
+    private ImageAdapter mMoviePosterAdapter;
 
     private final String LOG_TAG = MovieListFragment.class.getSimpleName();
 
@@ -58,6 +57,8 @@ public class MovieListFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        setHasOptionsMenu(true);
 
         mMoviePosterAdapter = new ImageAdapter(
                 getActivity(),
