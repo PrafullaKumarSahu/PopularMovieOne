@@ -1,5 +1,6 @@
 package com.android.serverwarrior.popularmoviesone;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -10,13 +11,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * A placeholder fragment containing a simple view.
+ * A placeholder container containing a simple view.
  */
 public class MovieListFragment extends Fragment {
 
@@ -73,8 +73,12 @@ public class MovieListFragment extends Fragment {
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getContext(), "" + position,
-                        Toast.LENGTH_SHORT).show();
+                /*Toast.makeText(getContext(), "" + position,
+                        Toast.LENGTH_SHORT).show();*/
+                Movie details = movies.get(position);
+                Intent intent = new Intent(getActivity(), MovieDetailActivity.class)
+                        .putExtra("movies_details", details);
+                startActivity(intent);
             }
         });
         return rootView;
