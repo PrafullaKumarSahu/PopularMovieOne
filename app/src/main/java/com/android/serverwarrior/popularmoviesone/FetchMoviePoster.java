@@ -19,6 +19,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * Created by Server Warrior on 5/1/2016.
@@ -134,7 +135,7 @@ public class FetchMoviePoster extends AsyncTask<String[], Void,  List<Movie>> {
     }
 
     private String getYear(String date) {
-        final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
         final Calendar cal = Calendar.getInstance();
         try{
             cal.setTime(dateFormat.parse(date));

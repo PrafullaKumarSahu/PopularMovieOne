@@ -42,7 +42,7 @@ public class MovieListFragment extends Fragment {
         prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
 
         if(savedInstanceState != null){
-            ArrayList<Movie> storedMovies = new ArrayList<Movie>();
+            ArrayList<Movie> storedMovies;
             storedMovies = savedInstanceState.<Movie>getParcelableArrayList(STORED_MOVIES);
             movies.clear();
             movies.addAll(storedMovies);
