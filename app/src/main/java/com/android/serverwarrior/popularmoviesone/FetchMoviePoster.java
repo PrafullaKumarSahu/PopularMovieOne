@@ -1,5 +1,6 @@
 package com.android.serverwarrior.popularmoviesone;
 
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.util.Log;
 
@@ -26,6 +27,8 @@ import java.util.List;
 public class FetchMoviePoster extends AsyncTask<String[], Void,  List<Movie>> {
 
     private final String LOG_TAG = FetchMoviePoster.class.getSimpleName();
+    final String APIKEY = BuildConfig.MOVIE_DB_API_KEY;
+
     private final String MOVIE_POSTER_BASE = "http://image.tmdb.org/t/p/";
     private final String MOVIE_POSTER_SIZE ="w185";
 
@@ -38,9 +41,19 @@ public class FetchMoviePoster extends AsyncTask<String[], Void,  List<Movie>> {
         String movieResponseJsonStr = null;
 
         try {
-            String baseUrl = "http://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc";
-            String apiKey = "&api_key=" + BuildConfig.MOVIE_DB_API_KEY;
-            URL url = new URL(baseUrl.concat(apiKey));
+            final String BASE_URL = "http://api.themoviedb.org/3/discover/movie?";
+            final String SORT_BY = "sort_by";
+            final String KEY = "api_key";
+
+            //String sortBy = params[0];
+            String sortBy = "popularity.desc";
+
+            Uri builtUri = Uri.parse(BASE_URL).buildUpon()
+                    .appendQueryParameter(SORT_BY, sortBy)
+                    .appendQueryParameter(KEY, APIKEY)
+                    .build();
+
+            URL url = new URL(builtUri.toString());
 
             urlConnection = (HttpURLConnection) url.openConnection();
             urlConnection.setRequestMethod("GET");
@@ -93,7 +106,6 @@ public class FetchMoviePoster extends AsyncTask<String[], Void,  List<Movie>> {
         return null;
     }
 
-    //   private String[][] getMoviePostersFromJson(String movieResponseJsonStr) throws JSONException {
     private List<Movie> getMoviePostersFromJson(String movieResponseJsonStr) throws JSONException {
         {
             final String MD_ARRAY_OF_MOVIES = "results";
@@ -115,7 +127,13 @@ public class FetchMoviePoster extends AsyncTask<String[], Void,  List<Movie>> {
                 String overview = movie.getString(MD_OVERVIEW);
                 String voteAverage = movie.getString(MD_VOTE_AVG);
                 String releaseDate = getYear(movie.getString(MD_RELEASE_DATE));
-                
+
+               /* Log.v("title", title);
+                Log.v("poster", poster);
+                Log.v("overview", overview);
+                Log.v("voteAverage", voteAverage);
+                Log.v("releaseDate", releaseDate);
+*/
                 movies.add(new Movie(title, poster, overview, voteAverage, releaseDate));
             }
             return movies;
