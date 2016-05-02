@@ -24,18 +24,23 @@ import java.util.Locale;
 /**
  * Created by Server Warrior on 5/1/2016.
  */
-public class FetchMoviePoster extends AsyncTask<String[], Void,  List<Movie>> {
+public class FetchMoviePoster extends AsyncTask<String, Void,  List<Movie>> {
 
     private final String LOG_TAG = FetchMoviePoster.class.getSimpleName();
     final String APIKEY = BuildConfig.MOVIE_DB_API_KEY;
+    public AsyncResponse delegate;
 
     private final String MOVIE_POSTER_BASE = "http://image.tmdb.org/t/p/";
     private final String MOVIE_POSTER_SIZE ="w185";
 
     private ImageAdapter mMoviePosterAdapter;
 
+    public FetchMoviePoster(AsyncResponse delegate){
+        this.delegate = delegate;
+    }
+
     @Override
-    protected List<Movie> doInBackground(String[]... params) {
+    protected List<Movie> doInBackground(String... params) {
 
         HttpURLConnection urlConnection = null;
         BufferedReader reader = null;
@@ -150,10 +155,11 @@ public class FetchMoviePoster extends AsyncTask<String[], Void,  List<Movie>> {
     protected void onPostExecute(List<Movie> movies) {
         //super.onPostExecute(movies);
         if(movies != null){
-            mMoviePosterAdapter.clear();
+           /* mMoviePosterAdapter.clear();
             for(Movie movie : movies){
                 mMoviePosterAdapter.add(movie.getPoster());
-            }
+            }*/
+            delegate.onTaskCompleted(movies);
         }
     }
 }

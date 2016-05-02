@@ -83,7 +83,23 @@ public class MovieListFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        updateMoviePosters();
+        if(movies.size() > 0){
+            updateMoviePosters();
+        } else{
+            getMovies();
+        }
+    }
+
+    private void getMovies() {
+       FetchMoviePoster fetchMoviePoster = new FetchMoviePoster(new AsyncResponse() {
+           @Override
+           public void onTaskCompleted(List<Movie> results) {
+               movies.clear();
+               movies.addAll(results);
+               updateMoviePosters();
+           }
+       });
+        fetchMoviePoster.execute("popularity.desc");
     }
 
     @Override
