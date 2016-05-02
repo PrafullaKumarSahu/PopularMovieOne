@@ -86,9 +86,19 @@ public class MovieListFragment extends Fragment {
         updateMoviePosters();
     }
 
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        ArrayList<Movie> storedMovies = new ArrayList<Movie>();
+        storedMovies.addAll(movies);
+        outState.putParcelableArrayList(STORED_MOVIES, storedMovies);
+    }
+
     private void updateMoviePosters() {
-        FetchMoviePoster moviePosters = new FetchMoviePoster();
-        moviePosters.execute();
+        mMoviePosterAdapter.clear();
+        for(Movie movie : movies) {
+            mMoviePosterAdapter.add(movie.getPoster());
+        }
     }
 
 }

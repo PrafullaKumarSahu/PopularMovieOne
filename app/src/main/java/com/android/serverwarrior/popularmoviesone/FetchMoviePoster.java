@@ -32,6 +32,8 @@ public class FetchMoviePoster extends AsyncTask<String[], Void,  List<Movie>> {
     private final String MOVIE_POSTER_BASE = "http://image.tmdb.org/t/p/";
     private final String MOVIE_POSTER_SIZE ="w185";
 
+    private ImageAdapter mMoviePosterAdapter;
+
     @Override
     protected List<Movie> doInBackground(String[]... params) {
 
@@ -118,7 +120,7 @@ public class FetchMoviePoster extends AsyncTask<String[], Void,  List<Movie>> {
             JSONObject moviePostersJson = new JSONObject(movieResponseJsonStr);
             JSONArray moviePosterArray = moviePostersJson.getJSONArray(MD_ARRAY_OF_MOVIES);
 
-            ArrayList<Movie> movies = new ArrayList<Movie>();
+            List<Movie> movies = new ArrayList<Movie>();
 
             for(int i = 0; i < moviePosterArray.length(); i++ ){
                 JSONObject movie = moviePosterArray.getJSONObject(i);
@@ -146,6 +148,12 @@ public class FetchMoviePoster extends AsyncTask<String[], Void,  List<Movie>> {
 
     @Override
     protected void onPostExecute(List<Movie> movies) {
-        super.onPostExecute(movies);
+        //super.onPostExecute(movies);
+        if(movies != null){
+            mMoviePosterAdapter.clear();
+            for(Movie movie : movies){
+                mMoviePosterAdapter.add(movie.getPoster());
+            }
+        }
     }
 }
