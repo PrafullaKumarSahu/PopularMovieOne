@@ -33,14 +33,16 @@ public class FetchMoviePoster extends AsyncTask<String, Void,  List<Movie>> {
     private final String MOVIE_POSTER_BASE = "http://image.tmdb.org/t/p/";
     private final String MOVIE_POSTER_SIZE ="w185";
 
-    private ImageAdapter mMoviePosterAdapter;
-
     public FetchMoviePoster(AsyncResponse delegate){
         this.delegate = delegate;
     }
 
     @Override
     protected List<Movie> doInBackground(String... params) {
+
+        if(params.length == 0){
+            return null;
+        }
 
         HttpURLConnection urlConnection = null;
         BufferedReader reader = null;
@@ -69,8 +71,8 @@ public class FetchMoviePoster extends AsyncTask<String, Void,  List<Movie>> {
             InputStream inputStream = urlConnection.getInputStream();
             StringBuffer buffer = new StringBuffer();
             if (inputStream == null) {
-                // return null;
-                movieResponseJsonStr = null;
+                 return null;
+                //movieResponseJsonStr = null;
             }
             reader = new BufferedReader(new InputStreamReader(inputStream));
 
@@ -81,16 +83,16 @@ public class FetchMoviePoster extends AsyncTask<String, Void,  List<Movie>> {
             }
 
             if (buffer.length() == 0) {
-                //return null;
-                movieResponseJsonStr = null;
+                return null;
+                //movieResponseJsonStr = null;
             }
             movieResponseJsonStr = buffer.toString();
 
             Log.v("Response", movieResponseJsonStr);
         } catch (IOException e) {
             Log.e("URL connection", "Error", e);
-            //return null;
-            movieResponseJsonStr = null;
+            return null;
+            //movieResponseJsonStr = null;
         } finally {
             if (urlConnection != null) {
                 urlConnection.disconnect();
@@ -134,6 +136,7 @@ public class FetchMoviePoster extends AsyncTask<String, Void,  List<Movie>> {
                 String overview = movie.getString(MD_OVERVIEW);
                 String voteAverage = movie.getString(MD_VOTE_AVG);
                 String releaseDate = getYear(movie.getString(MD_RELEASE_DATE));
+
                 movies.add(new Movie(title, poster, overview, voteAverage, releaseDate));
             }
             return movies;
@@ -153,12 +156,8 @@ public class FetchMoviePoster extends AsyncTask<String, Void,  List<Movie>> {
 
     @Override
     protected void onPostExecute(List<Movie> movies) {
-        //super.onPostExecute(movies);
         if(movies != null){
-           /* mMoviePosterAdapter.clear();
-            for(Movie movie : movies){
-                mMoviePosterAdapter.add(movie.getPoster());
-            }*/
+            //return the list of movies back to the caller
             delegate.onTaskCompleted(movies);
         }
     }

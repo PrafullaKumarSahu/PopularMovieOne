@@ -20,15 +20,17 @@ import java.util.List;
  */
 public class MovieListFragment extends Fragment {
 
+    private final String LOG_TAG = MovieListFragment.class.getSimpleName();
+
     private static final String STORED_MOVIES = "stored_movies";
 
     private ImageAdapter mMoviePosterAdapter;
 
-    private final String LOG_TAG = MovieListFragment.class.getSimpleName();
+    private SharedPreferences prefs;
 
     List<Movie> movies = new ArrayList<Movie>();
 
-    private SharedPreferences prefs;
+
 
     public MovieListFragment() {
         setHasOptionsMenu(true);
@@ -57,8 +59,6 @@ public class MovieListFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-        setHasOptionsMenu(true);
 
         mMoviePosterAdapter = new ImageAdapter(
                 getActivity(),

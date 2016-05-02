@@ -14,6 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/movie_title_view"
+        style="@style/detailHeader"
         />
     <ScrollView
         android:layout_width="match_parent"
@@ -41,6 +42,7 @@
                     android:adjustViewBounds="true"
                     android:layout_weight="1"
                     android:id="@+id/poster_image_view"
+                    style="@style/detailPoster"
                     />
                 <LinearLayout
                     android:layout_width="0dp"
@@ -52,18 +54,21 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/release_date"
+                        style="@style/detailYear"
                         />
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/rating_view"
+                        style="@style/detailRating"
                         />
                 </LinearLayout>
             </LinearLayout>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/synopssis_view"
+                android:id="@+id/synopsis_view"
+                style="@style/detailSynopsis"
                 />
         </LinearLayout>
     </ScrollView>
