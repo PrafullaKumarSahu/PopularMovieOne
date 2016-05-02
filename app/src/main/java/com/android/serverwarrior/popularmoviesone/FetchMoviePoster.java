@@ -145,4 +145,8 @@ public class FetchMoviePoster extends AsyncTask<String[], Void,  List<Movie>> {
         return Integer.toString(cal.get(Calendar.YEAR));
     }
 
+    @Override
+    protected void onPostExecute(List<Movie> movies) {
+        super.onPostExecute(movies);
+    }
 }

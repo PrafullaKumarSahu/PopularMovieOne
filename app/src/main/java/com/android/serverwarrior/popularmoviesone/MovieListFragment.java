@@ -62,32 +62,30 @@ public class MovieListFragment extends Fragment {
         mMoviePosterAdapter = new ImageAdapter(
                 getActivity(),
                 R.layout.list_movie_poster,
-                R.id.list_movie_imageview,
+                R.id.list_movie_poster_imageview,
                 new ArrayList<String>());
 
-        View rootView = inflater.inflate(R.layout.fragment_main, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_movie_list, container, false);
         GridView gridview = (GridView) rootView.findViewById(R.id.movie_gridview);
         gridview.setAdapter(mMoviePosterAdapter);
 
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> parent, View v,
-                                    int position, long id) {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(getContext(), "" + position,
                         Toast.LENGTH_SHORT).show();
             }
         });
-
-
         return rootView;
     }
 
     @Override
     public void onStart() {
         super.onStart();
-        updateMoviePosterss();
+        updateMoviePosters();
     }
 
-    private void updateMoviePosterss() {
+    private void updateMoviePosters() {
         FetchMoviePoster moviePosters = new FetchMoviePoster();
         moviePosters.execute();
     }

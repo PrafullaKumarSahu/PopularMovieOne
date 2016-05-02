@@ -18,6 +18,7 @@ public class ImageAdapter extends ArrayAdapter<String> {
     private LayoutInflater mLayoutInflater;
     private int layoutId;
     private int imageViewID;
+    private FetchMoviePoster  moviePosters;
 
     // references to our images
 //    private Integer[] mThumbIds = {
@@ -43,6 +44,8 @@ public class ImageAdapter extends ArrayAdapter<String> {
 
         Log.v("Image View ID", imageViewID + "");//executing correctly
     }
+
+
 
     // create a new ImageView for each item referenced by the Adapter
     public View getView(int position, View convertView, ViewGroup parent) {//not called
