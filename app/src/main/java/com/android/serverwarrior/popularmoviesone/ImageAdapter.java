@@ -20,19 +20,18 @@ public class ImageAdapter extends ArrayAdapter<String> {
     private int imageViewID;
 
     // references to our images
-  /*  private Integer[] mThumbIds = {
-            R.drawable.pic1,
-            R.drawable.pic2,
-            R.drawable.pic3,
-            R.drawable.pic4,
-            R.drawable.pic5,
-            R.drawable.pic6,
-            R.drawable.pic7,
-            R.drawable.pic8,
-            R.drawable.pic9,
-            R.drawable.pic10
-    };
-*/
+//    private Integer[] mThumbIds = {
+//            R.drawable.pic1,
+//            R.drawable.pic2,
+//            R.drawable.pic3,
+//            R.drawable.pic4,
+//            R.drawable.pic5,
+//            R.drawable.pic6,
+//            R.drawable.pic7,
+//            R.drawable.pic8,
+//            R.drawable.pic9,
+//            R.drawable.pic10
+//    };
 
 
     public ImageAdapter(Context context, int layoutId, int imageViewID, ArrayList<String> urls){
@@ -41,27 +40,29 @@ public class ImageAdapter extends ArrayAdapter<String> {
         this.mContext = context;
         this.layoutId = layoutId;
         this.imageViewID = imageViewID;
+
+        Log.v("Image View ID", imageViewID + "");
     }
 
 
     // create a new ImageView for each item referenced by the Adapter
     public View getView(int position, View convertView, ViewGroup parent) {
-       /* ImageView imageView;
-        if (convertView == null) {
-            // if it's not recycled, initialize some attributes
-            imageView = new ImageView(mContext);
-            imageView.setLayoutParams(new GridView.LayoutParams(85, 85));
-            imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            imageView.setPadding(8, 8, 8, 8);
-        } else {
-            imageView = (ImageView) convertView;
-        }
-
-        Integer url = mThumbIds[position];
-        //imageView.setImageResource(mThumbIds[position]);
-        Picasso.with(mContext).load(url).into(imageView);
-
-        return imageView;*/
+//        ImageView imageView;
+//        if (convertView == null) {
+//            // if it's not recycled, initialize some attributes
+//            imageView = new ImageView(mContext);
+//            imageView.setLayoutParams(new GridView.LayoutParams(85, 85));
+//            imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+//            imageView.setPadding(8, 8, 8, 8);
+//        } else {
+//            imageView = (ImageView) convertView;
+//        }
+//
+//        Integer url = mThumbIds[position];
+//        //imageView.setImageResource(mThumbIds[position]);
+//        Picasso.with(mContext).load(url).into(imageView);
+//
+//        return imageView;
         View v = convertView;
         String url;
         if(v == null){

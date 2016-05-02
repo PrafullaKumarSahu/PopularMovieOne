@@ -127,13 +127,6 @@ public class FetchMoviePoster extends AsyncTask<String[], Void,  List<Movie>> {
                 String overview = movie.getString(MD_OVERVIEW);
                 String voteAverage = movie.getString(MD_VOTE_AVG);
                 String releaseDate = getYear(movie.getString(MD_RELEASE_DATE));
-
-               /* Log.v("title", title);
-                Log.v("poster", poster);
-                Log.v("overview", overview);
-                Log.v("voteAverage", voteAverage);
-                Log.v("releaseDate", releaseDate);
-*/
                 movies.add(new Movie(title, poster, overview, voteAverage, releaseDate));
             }
             return movies;

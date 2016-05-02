@@ -49,25 +49,17 @@ public class Movie implements Parcelable {
     }
 
     @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
     public void writeToParcel(Parcel out, int flags) {
         out.writeString(title);
         out.writeString(poster);
         out.writeString(overview);
         out.writeString(voteAverage);
         out.writeString(releaseDate);
-    }
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    private Movie(Parcel in) {
-        title = in.readString();
-        poster = in.readString();
-        overview = in.readString();
-        voteAverage = in.readString();
-        releaseDate = in.readString();
     }
 
     public static final Parcelable.Creator<Movie> CREATOR = new Parcelable.Creator<Movie>() {
@@ -80,4 +72,14 @@ public class Movie implements Parcelable {
             return new Movie[size];
         }
     };
+
+    private Movie(Parcel in) {
+        title = in.readString();
+        Log.v("constructor 2 title", title);
+        poster = in.readString();
+        overview = in.readString();
+        voteAverage = in.readString();
+        releaseDate = in.readString();
+
+    }
 }
