@@ -24,23 +24,22 @@ import java.util.Locale;
 /**
  * Created by Server Warrior on 5/1/2016.
  */
-public class FetchMoviePoster extends AsyncTask<String, Void,  List<Movie>> {
+public class FetchMoviePoster extends AsyncTask<String, Void, List<Movie>> {
 
-    private final String LOG_TAG = FetchMoviePoster.class.getSimpleName();
     final String APIKEY = BuildConfig.MOVIE_DB_API_KEY;
+    private final String LOG_TAG = FetchMoviePoster.class.getSimpleName();
+    private final String MOVIE_POSTER_BASE = "http://image.tmdb.org/t/p/";
+    private final String MOVIE_POSTER_SIZE = "w185";
     public AsyncResponse delegate;
 
-    private final String MOVIE_POSTER_BASE = "http://image.tmdb.org/t/p/";
-    private final String MOVIE_POSTER_SIZE ="w185";
-
-    public FetchMoviePoster(AsyncResponse delegate){
+    public FetchMoviePoster(AsyncResponse delegate) {
         this.delegate = delegate;
     }
 
     @Override
     protected List<Movie> doInBackground(String... params) {
 
-        if(params.length == 0){
+        if (params.length == 0) {
             return null;
         }
 
@@ -71,7 +70,7 @@ public class FetchMoviePoster extends AsyncTask<String, Void,  List<Movie>> {
             InputStream inputStream = urlConnection.getInputStream();
             StringBuffer buffer = new StringBuffer();
             if (inputStream == null) {
-                 return null;
+                return null;
                 //movieResponseJsonStr = null;
             }
             reader = new BufferedReader(new InputStreamReader(inputStream));
@@ -129,7 +128,7 @@ public class FetchMoviePoster extends AsyncTask<String, Void,  List<Movie>> {
 
             List<Movie> movies = new ArrayList<Movie>();
 
-            for(int i = 0; i < moviePosterArray.length(); i++ ){
+            for (int i = 0; i < moviePosterArray.length(); i++) {
                 JSONObject movie = moviePosterArray.getJSONObject(i);
                 String title = movie.getString(MD_ORIGINAL_TITLE);
                 String poster = MOVIE_POSTER_BASE + MOVIE_POSTER_SIZE + movie.getString(MD_POSTER_PATH);
@@ -146,9 +145,9 @@ public class FetchMoviePoster extends AsyncTask<String, Void,  List<Movie>> {
     private String getYear(String date) {
         final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
         final Calendar cal = Calendar.getInstance();
-        try{
+        try {
             cal.setTime(dateFormat.parse(date));
-        }catch(ParseException e){
+        } catch (ParseException e) {
             e.printStackTrace();
         }
         return Integer.toString(cal.get(Calendar.YEAR));
@@ -156,7 +155,7 @@ public class FetchMoviePoster extends AsyncTask<String, Void,  List<Movie>> {
 
     @Override
     protected void onPostExecute(List<Movie> movies) {
-        if(movies != null){
+        if (movies != null) {
             //return the list of movies back to the caller
             delegate.onTaskCompleted(movies);
         }

@@ -30,7 +30,7 @@ public class MovieDetailActivityFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_movie_detail, container, false);
 
         Intent intent = getActivity().getIntent();
-        if(intent != null && intent.hasExtra("movies_details")){
+        if (intent != null && intent.hasExtra("movies_details")) {
             movie = intent.getParcelableExtra("movies_details");
             displayInfo(rootView);
         }

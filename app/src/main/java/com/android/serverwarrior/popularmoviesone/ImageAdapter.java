@@ -19,7 +19,7 @@ public class ImageAdapter extends ArrayAdapter<String> {
     private int layoutId;
     private int imageViewID;
 
-   // private ArrayList<String> urls;
+    // private ArrayList<String> urls;
     // references to our images
 //    private Integer[] mThumbIds = {
 //            R.drawable.pic1,
@@ -35,7 +35,7 @@ public class ImageAdapter extends ArrayAdapter<String> {
 //    };
 
 
-    public ImageAdapter(Context context, int layoutId, int imageViewID, ArrayList<String> urls){
+    public ImageAdapter(Context context, int layoutId, int imageViewID, ArrayList<String> urls) {
         super(context, 0, urls);
         this.mLayoutInflater = LayoutInflater.from(context);
         this.mContext = context;
@@ -65,7 +65,7 @@ public class ImageAdapter extends ArrayAdapter<String> {
 //        return imageView;
         View v = convertView;
         String url;
-        if(v == null){
+        if (v == null) {
             v = this.mLayoutInflater.inflate(this.layoutId, parent, false);
         }
 

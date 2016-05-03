@@ -12,7 +12,7 @@ import android.view.View;
 
 public class MovieDetailActivity extends AppCompatActivity {
 
-  private final String LOG_TAG = MovieDetailActivity.class.getSimpleName();
+    private final String LOG_TAG = MovieDetailActivity.class.getSimpleName();
 
 
     @Override
@@ -52,7 +52,7 @@ public class MovieDetailActivity extends AppCompatActivity {
 
         int id = item.getItemId();
 
-        if(id == R.id.action_settings){
+        if (id == R.id.action_settings) {
             startActivity(new Intent(this, SettingsActivity.class));
             return true;
         }
