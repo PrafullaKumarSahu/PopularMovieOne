@@ -54,8 +54,8 @@ public class FetchMoviePoster extends AsyncTask<String, Void,  List<Movie>> {
             final String SORT_BY = "sort_by";
             final String KEY = "api_key";
 
-            //String sortBy = params[0];
-            String sortBy = "popularity.desc";
+            String sortBy = params[0];
+            //String sortBy = "popularity.desc";
 
             Uri builtUri = Uri.parse(BASE_URL).buildUpon()
                     .appendQueryParameter(SORT_BY, sortBy)

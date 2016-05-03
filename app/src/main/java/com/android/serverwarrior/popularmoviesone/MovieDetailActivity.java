@@ -1,5 +1,6 @@
 package com.android.serverwarrior.popularmoviesone;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -12,6 +13,7 @@ import android.view.View;
 public class MovieDetailActivity extends AppCompatActivity {
 
   private final String LOG_TAG = MovieDetailActivity.class.getSimpleName();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +39,7 @@ public class MovieDetailActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
     }
-    
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -51,6 +53,7 @@ public class MovieDetailActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if(id == R.id.action_settings){
+            startActivity(new Intent(this, SettingsActivity.class));
             return true;
         }
 

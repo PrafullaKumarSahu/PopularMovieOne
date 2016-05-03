@@ -28,6 +28,8 @@ public class MovieListFragment extends Fragment {
 
     private SharedPreferences prefs;
 
+    String sortOrder;
+
     List<Movie> movies = new ArrayList<Movie>();
 
 
@@ -41,6 +43,8 @@ public class MovieListFragment extends Fragment {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
         prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
+
+        sortOrder = prefs.getString(getString(R.string.sort_array_key), getString(R.string.display_preferences_sort_default_value));
 
         if(savedInstanceState != null){
             ArrayList<Movie> storedMovies;
@@ -85,9 +89,13 @@ public class MovieListFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        if(movies.size() > 0){
+
+        String prefSortOrder = prefs.getString(getString(R.string.sort_array_key), getString(R.string.display_preferences_sort_default_value));
+
+        if(movies.size() > 0 && prefSortOrder.equals(prefSortOrder)){
             updateMoviePosters();
         } else{
+            sortOrder = prefSortOrder;
             getMovies();
         }
     }
@@ -101,7 +109,7 @@ public class MovieListFragment extends Fragment {
                updateMoviePosters();
            }
        });
-        fetchMoviePoster.execute("popularity.desc");
+        fetchMoviePoster.execute(sortOrder);
     }
 
     @Override
