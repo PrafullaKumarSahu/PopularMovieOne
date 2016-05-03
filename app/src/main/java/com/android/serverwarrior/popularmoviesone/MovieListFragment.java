@@ -73,8 +73,6 @@ public class MovieListFragment extends Fragment {
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                /*Toast.makeText(getContext(), "" + position,
-                        Toast.LENGTH_SHORT).show();*/
                 Movie details = movies.get(position);
                 Intent intent = new Intent(getActivity(), MovieDetailActivity.class)
                         .putExtra("movies_details", details);

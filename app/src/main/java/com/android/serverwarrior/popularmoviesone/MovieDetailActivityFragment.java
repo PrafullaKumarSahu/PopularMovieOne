@@ -27,7 +27,6 @@ public class MovieDetailActivityFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        Log.v("detail page title", movie.getTitle());
         View rootView = inflater.inflate(R.layout.fragment_movie_detail, container, false);
 
         Intent intent = getActivity().getIntent();
