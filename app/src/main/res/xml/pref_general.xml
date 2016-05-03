@@ -6,8 +6,6 @@
         android:entryValues="@array/pref_sort_values"
         android:defaultValue="@string/display_preferences_sort_default_value"
         android:key="@string/sort_array_key"
-        android:negativeButtonText="@null"
-        android:positiveButtonText="@null"
         android:title="@string/pref_sort_order_title" />
 
 </PreferenceScreen>

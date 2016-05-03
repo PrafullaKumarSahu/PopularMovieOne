@@ -31,7 +31,7 @@ public class MovieDetailActivityFragment extends Fragment {
 
         Intent intent = getActivity().getIntent();
         if(intent != null && intent.hasExtra("movies_details")){
-            movie = (Movie) intent.getParcelableExtra("movies_details");
+            movie = intent.getParcelableExtra("movies_details");
             displayInfo(rootView);
         }
 

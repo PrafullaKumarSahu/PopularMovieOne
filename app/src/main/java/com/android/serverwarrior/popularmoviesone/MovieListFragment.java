@@ -48,7 +48,7 @@ public class MovieListFragment extends Fragment {
 
         if(savedInstanceState != null){
             ArrayList<Movie> storedMovies;
-            storedMovies = savedInstanceState.<Movie>getParcelableArrayList(STORED_MOVIES);
+            storedMovies = savedInstanceState.getParcelableArrayList(STORED_MOVIES);
             movies.clear();
             movies.addAll(storedMovies);
         }
