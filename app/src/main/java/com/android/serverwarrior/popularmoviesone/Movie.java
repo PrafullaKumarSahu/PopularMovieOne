@@ -3,20 +3,11 @@ package com.android.serverwarrior.popularmoviesone;
 /**
  * Created by Server Warrior on 5/1/2016.
  */
-
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.util.Log;
 
 public class Movie implements Parcelable {
-    public static final Parcelable.Creator<Movie> CREATOR = new Parcelable.Creator<Movie>() {
-        public Movie createFromParcel(Parcel in) {
-            return new Movie(in);
-        }
-
-        public Movie[] newArray(int size) {
-            return new Movie[size];
-        }
-    };
     private String title;
     private String poster;
     private String overview;
@@ -24,7 +15,7 @@ public class Movie implements Parcelable {
     private String releaseDate;
 
     public Movie(String title, String poster, String overview,
-                 String voteAverage, String releaseDate) {
+                 String voteAverage, String releaseDate){
         this.title = title;
         this.poster = poster;
         this.overview = overview;
@@ -32,32 +23,28 @@ public class Movie implements Parcelable {
         this.releaseDate = releaseDate;
     }
 
-    private Movie(Parcel in) {
-        title = in.readString();
-        poster = in.readString();
-        overview = in.readString();
-        voteAverage = in.readString();
-        releaseDate = in.readString();
-
-    }
-
     public String getTitle() {
+        Log.v("Movie title", title);
         return title;
     }
 
     public String getPoster() {
+        Log.v("Movie poster", poster);
         return poster;
     }
 
     public String getOverview() {
+        Log.v("Movie overview", overview);
         return overview;
     }
 
     public String getVoteAverage() {
+        Log.v("Movie voteAverage", voteAverage);
         return voteAverage;
     }
 
     public String getReleaseDate() {
+        Log.v("Movie releaseDate", releaseDate);
         return releaseDate;
     }
 
@@ -73,5 +60,26 @@ public class Movie implements Parcelable {
         out.writeString(overview);
         out.writeString(voteAverage);
         out.writeString(releaseDate);
+    }
+
+    public static final Parcelable.Creator<Movie> CREATOR = new Parcelable.Creator<Movie>() {
+        public Movie createFromParcel(Parcel in) {
+            return new Movie(in);
+        }
+
+        public Movie[] newArray(int size) {
+            Log.v("Movie size", size + "" );
+            return new Movie[size];
+        }
+    };
+
+    private Movie(Parcel in) {
+        title = in.readString();
+        Log.v("constructor 2 title", title);
+        poster = in.readString();
+        overview = in.readString();
+        voteAverage = in.readString();
+        releaseDate = in.readString();
+
     }
 }
