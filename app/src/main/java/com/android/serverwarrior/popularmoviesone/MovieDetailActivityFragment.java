@@ -17,8 +17,8 @@ import com.squareup.picasso.Picasso;
  */
 public class MovieDetailActivityFragment extends Fragment {
 
-    private final String LOG_TAG = MovieDetailActivityFragment.class.getSimpleName();
-    Movie movie;
+    //private final String LOG_TAG = MovieDetailActivityFragment.class.getSimpleName();
+    private Movie movie;
 
     public MovieDetailActivityFragment() {
         setHasOptionsMenu(true);

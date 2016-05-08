@@ -13,10 +13,10 @@ import java.util.ArrayList;
 
 public class ImageAdapter extends ArrayAdapter<String> {
 
-    private Context mContext;
-    private LayoutInflater mLayoutInflater;
-    private int layoutId;
-    private int imageViewID;
+    private final Context mContext;
+    private final LayoutInflater mLayoutInflater;
+    private final int layoutId;
+    private final int imageViewID;
 
 
 

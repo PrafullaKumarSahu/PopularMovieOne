@@ -19,4 +19,5 @@
     <string name="pref_sort_most_popular">Most Popular</string>
     <string name="sort_array_key">sort_list</string>
     <string name="display_preferences_sort_default_value">popularity.desc</string>
+    <string name="popular_movies">Popular movies</string>
 </resources>

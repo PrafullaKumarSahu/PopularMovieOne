@@ -9,7 +9,7 @@ import android.view.MenuItem;
 
 public class MovieDetailActivity extends AppCompatActivity {
 
-  private final String LOG_TAG = MovieDetailActivity.class.getSimpleName();
+//  private final String LOG_TAG = MovieDetailActivity.class.getSimpleName();
 
 
     @Override

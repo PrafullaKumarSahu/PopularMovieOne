@@ -20,7 +20,7 @@ import java.util.List;
  */
 public class MovieListFragment extends Fragment {
 
-    private final String LOG_TAG = MovieListFragment.class.getSimpleName();
+    //private final String LOG_TAG = MovieListFragment.class.getSimpleName();
 
     private static final String STORED_MOVIES = "stored_movies";
 
@@ -28,9 +28,9 @@ public class MovieListFragment extends Fragment {
 
     private SharedPreferences prefs;
 
-    String sortOrder;
+    private String sortOrder;
 
-    List<Movie> movies = new ArrayList<Movie>();
+    private final List<Movie> movies = new ArrayList<Movie>();
 
 
 
@@ -56,7 +56,7 @@ public class MovieListFragment extends Fragment {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
+        //int id = item.getItemId();
         return super.onOptionsItemSelected(item);
     }
 
