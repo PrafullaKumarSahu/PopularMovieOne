@@ -55,7 +55,6 @@ public class FetchMoviePoster extends AsyncTask<String, Void,  List<Movie>> {
             final String KEY = "api_key";
 
             String sortBy = params[0];
-            //String sortBy = "popularity.desc";
 
             Uri builtUri = Uri.parse(BASE_URL).buildUpon()
                     .appendQueryParameter(SORT_BY, sortBy)
@@ -88,9 +87,9 @@ public class FetchMoviePoster extends AsyncTask<String, Void,  List<Movie>> {
             }
             movieResponseJsonStr = buffer.toString();
 
-            Log.v("Response", movieResponseJsonStr);
+            //Log.v("Response", movieResponseJsonStr);
         } catch (IOException e) {
-            Log.e("URL connection", "Error", e);
+            //Log.e(LOG_TAG, "Error", e);
             return null;
             //movieResponseJsonStr = null;
         } finally {
@@ -101,7 +100,7 @@ public class FetchMoviePoster extends AsyncTask<String, Void,  List<Movie>> {
                 try {
                     reader.close();
                 } catch (final IOException e) {
-                    Log.e("URL connection", "Error", e);
+                    //Log.e(LOG_TAG, "Error", e);
                 }
             }
         }
