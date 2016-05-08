@@ -6,7 +6,6 @@ package com.android.serverwarrior.popularmoviesone;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.util.Log;
 
 public class Movie implements Parcelable {
     public static final Parcelable.Creator<Movie> CREATOR = new Parcelable.Creator<Movie>() {
@@ -15,7 +14,6 @@ public class Movie implements Parcelable {
         }
 
         public Movie[] newArray(int size) {
-            Log.v("Movie size", size + "");
             return new Movie[size];
         }
     };
@@ -36,7 +34,6 @@ public class Movie implements Parcelable {
 
     private Movie(Parcel in) {
         title = in.readString();
-        Log.v("constructor 2 title", title);
         poster = in.readString();
         overview = in.readString();
         voteAverage = in.readString();
@@ -45,27 +42,22 @@ public class Movie implements Parcelable {
     }
 
     public String getTitle() {
-        Log.v("Movie title", title);
         return title;
     }
 
     public String getPoster() {
-        Log.v("Movie poster", poster);
         return poster;
     }
 
     public String getOverview() {
-        Log.v("Movie overview", overview);
         return overview;
     }
 
     public String getVoteAverage() {
-        Log.v("Movie voteAverage", voteAverage);
         return voteAverage;
     }
 
     public String getReleaseDate() {
-        Log.v("Movie releaseDate", releaseDate);
         return releaseDate;
     }
 
