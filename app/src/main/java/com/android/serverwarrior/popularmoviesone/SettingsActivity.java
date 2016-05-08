@@ -11,7 +11,6 @@ import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
 import android.support.v4.app.NavUtils;
-import android.support.v7.app.ActionBar;
 import android.view.MenuItem;
 
 import java.util.List;
@@ -91,22 +90,11 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setupActionBar();
 
         addPreferencesFromResource(R.xml.pref_general);
         bindPreferenceSummaryToValue(findPreference(getString(R.string.sort_array_key)));
     }
 
-    /**
-     * Set up the {@link android.app.ActionBar}, if the API is available.
-     */
-    private void setupActionBar() {
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null) {
-            // Show the Up button in the action bar.
-            actionBar.setDisplayHomeAsUpEnabled(true);
-        }
-    }
 
     @Override
     public boolean onMenuItemSelected(int featureId, MenuItem item) {
