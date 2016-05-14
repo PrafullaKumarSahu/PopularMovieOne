@@ -21,7 +21,7 @@ import java.util.List;
 public class MovieListFragment extends Fragment {
 
     //private final String LOG_TAG = MovieListFragment.class.getSimpleName();
-
+    final static int REQ_CODE = 1;
     private static final String STORED_MOVIES = "stored_movies";
 
     private ImageAdapter mMoviePosterAdapter;
@@ -54,9 +54,20 @@ public class MovieListFragment extends Fragment {
         }
     }
 
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         //int id = item.getItemId();
+       // return super.onOptionsItemSelected(item);
+
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+             //startActivity(new Intent(this, SettingsActivity.class));
+            startActivityForResult(new Intent(getActivity(), SettingsActivity.class), REQ_CODE);
+            return true;
+        }
         return super.onOptionsItemSelected(item);
     }
 
@@ -98,6 +109,24 @@ public class MovieListFragment extends Fragment {
             sortOrder = prefSortOrder;
             getMovies();
         }
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        String prefSortOrder = prefs.getString(getString(R.string.sort_array_key), getString(R.string.display_preferences_sort_default_value));
+        if (requestCode == REQ_CODE) {
+            // Make sure the request was successful
+          //  if (resultCode == RESULT_OK) {
+                if(movies.size() > 0 && prefSortOrder.equals(prefSortOrder)){
+                    updateMoviePosters();
+                } else{
+                    sortOrder = prefSortOrder;
+                    getMovies();
+                }
+          // }
+        }
+
     }
 
 
