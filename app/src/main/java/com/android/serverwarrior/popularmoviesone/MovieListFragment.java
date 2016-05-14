@@ -100,6 +100,7 @@ public class MovieListFragment extends Fragment {
         }
     }
 
+
     private void getMovies() {
        FetchMoviePoster fetchMoviePoster = new FetchMoviePoster(new AsyncResponse() {
            @Override

@@ -3,7 +3,6 @@ package com.android.serverwarrior.popularmoviesone;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,8 +43,6 @@ public class MovieDetailActivityFragment extends Fragment {
         TextView releaseDate = (TextView) v.findViewById(R.id.release_date);
         TextView ratings = (TextView) v.findViewById(R.id.rating_view);
         TextView overview = (TextView) v.findViewById(R.id.synopsis_view);
-
-        Log.v("detail page title", movie.getTitle());
         title.setText(movie.getTitle());
         Picasso.with(getActivity()).load(movie.getPoster()).into(poster);
         releaseDate.setText(movie.getReleaseDate());

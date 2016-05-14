@@ -11,7 +11,6 @@ public class MovieDetailActivity extends AppCompatActivity {
 
 //  private final String LOG_TAG = MovieDetailActivity.class.getSimpleName();
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +35,7 @@ public class MovieDetailActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_movie_detail, menu);
         return true;
     }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

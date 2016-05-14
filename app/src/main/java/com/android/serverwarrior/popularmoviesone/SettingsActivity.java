@@ -3,6 +3,7 @@ package com.android.serverwarrior.popularmoviesone;
 
 import android.annotation.TargetApi;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
@@ -93,8 +94,16 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
 
         addPreferencesFromResource(R.xml.pref_general);
         bindPreferenceSummaryToValue(findPreference(getString(R.string.sort_array_key)));
+
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent();
+        setResult(RESULT_OK, intent);
+        finish();
+    }
 
     @Override
     public boolean onMenuItemSelected(int featureId, MenuItem item) {
