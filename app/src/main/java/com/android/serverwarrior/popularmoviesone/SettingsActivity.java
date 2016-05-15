@@ -12,7 +12,6 @@ import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
 import android.support.v4.app.NavUtils;
-import android.util.Log;
 import android.view.MenuItem;
 
 import java.util.List;
@@ -100,10 +99,9 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
-        Log.v("abc", "here before checking back button pressed");
         Intent intent = new Intent();
         setResult(RESULT_OK, intent);
+        super.onBackPressed();
         finish();
     }
 
