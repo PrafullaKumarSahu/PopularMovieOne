@@ -1,10 +1,12 @@
 package com.android.serverwarrior.popularmoviesone;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -115,18 +117,15 @@ public class MovieListFragment extends Fragment {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         String prefSortOrder = prefs.getString(getString(R.string.sort_array_key), getString(R.string.display_preferences_sort_default_value));
+        Log.v("abc", "here before checking req_code");
         if (requestCode == REQ_CODE) {
+            Log.v("abc", "here before checking resultok");
             // Make sure the request was successful
-          //  if (resultCode == RESULT_OK) {
-                if(movies.size() > 0 && prefSortOrder.equals(prefSortOrder)){
-                    updateMoviePosters();
-                } else{
-                    sortOrder = prefSortOrder;
-                    getMovies();
-                }
-          // }
+           if (resultCode == Activity.RESULT_OK) {
+               sortOrder = prefSortOrder;
+               getMovies();
+           }
         }
-
     }
 
 

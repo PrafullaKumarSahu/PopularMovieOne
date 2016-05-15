@@ -115,15 +115,15 @@ public class FetchMoviePoster extends AsyncTask<String, Void,  List<Movie>> {
 
     private List<Movie> getMoviePostersFromJson(String movieResponseJsonStr) throws JSONException {
         {
-            final String MOVIE_POSTER_BASE = "http://image.tmdb.org/t/p/";
-            final String MOVIE_POSTER_SIZE ="w185";
+            final String MOVIE_POSTER_BASE  = "http://image.tmdb.org/t/p/";
+            final String MOVIE_POSTER_SIZE  ="w185";
 
             final String MD_ARRAY_OF_MOVIES = "results";
-            final String MD_POSTER_PATH = "poster_path";
-            final String MD_OVERVIEW = "overview";
-            final String MD_RELEASE_DATE = "release_date";
-            final String MD_ORIGINAL_TITLE = "original_title";
-            final String MD_VOTE_AVG = "vote_average";
+            final String MD_POSTER_PATH     = "poster_path";
+            final String MD_OVERVIEW        = "overview";
+            final String MD_RELEASE_DATE    = "release_date";
+            final String MD_ORIGINAL_TITLE  = "original_title";
+            final String MD_VOTE_AVG        = "vote_average";
 
 
             JSONObject moviePostersJson = new JSONObject(movieResponseJsonStr);
