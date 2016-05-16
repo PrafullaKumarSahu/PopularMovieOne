@@ -8,44 +8,6 @@
     </style>
 
 
-    <!--  Style for  Detail Fragment child views  -->
-
-    <!--  Style for  Detail header child view  -->
-    <style name="detailHeader" parent="AppTheme">
-        <item name="android:textColor">#FFF</item>
-        <item name="android:labelTextSize">30sp</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:layout_marginTop">50dp</item>
-        <item name="android:paddingLeft">16dp</item>
-        <item name="android:paddingRight">16dp</item>
-        <item name="android:paddingTop">16dp</item>
-        <item name="android:paddingBottom">16dp</item>
-        <item name="android:background">@color/colorPrimary</item>
-    </style>
-
-    <!--  Style for  Detail poster child view  -->
-    <style name="detailPoster" parent="AppTheme">
-        <item name="android:paddingRight">16dp</item>
-    </style>
-
-    <!--  Style for  Detail year child view  -->
-    <style name="detailYear" parent="AppTheme">
-        <item name="android:textColor">@color/colorPrimaryDark</item>
-        <item name="android:textStyle">bold</item>
-    </style>
-
-    <!--  Style for  Detail rating child view  -->
-    <style name="detailRating" parent="AppTheme">
-        <item name="android:textColor">@color/colorAccent</item>
-        <item name="android:textStyle">bold</item>
-    </style>
-
-    <!--  Style for  Detail synopsis child view  -->
-    <style name="detailSynopsis" parent="AppTheme">
-        <item name="android:paddingRight">16dp</item>
-        <item name="android:paddingLeft">16dp</item>
-        <item name="android:paddingBottom">16dp</item>
-    </style>
 
 
 </resources>

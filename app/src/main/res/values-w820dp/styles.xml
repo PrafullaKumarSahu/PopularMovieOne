@@ -16,28 +16,5 @@
         <item name="android:background">@color/colorPrimary</item>
     </style>
 
-    <!--  Style for  Detail poster child view  -->
-    <style name="detailPoster" parent="AppTheme">
-        <item name="android:paddingRight">16dp</item>
-    </style>
-
-    <!--  Style for  Detail year child view  -->
-    <style name="detailYear" parent="AppTheme">
-        <item name="android:textColor">@color/colorPrimaryDark</item>
-        <item name="android:textStyle">bold</item>
-    </style>
-
-    <!--  Style for  Detail rating child view  -->
-    <style name="detailRating" parent="AppTheme">
-        <item name="android:textColor">@color/colorAccent</item>
-        <item name="android:textStyle">bold</item>
-    </style>
-
-    <!--  Style for  Detail synopsis child view  -->
-    <style name="detailSynopsis" parent="AppTheme">
-        <item name="android:paddingRight">16dp</item>
-        <item name="android:paddingLeft">16dp</item>
-        <item name="android:paddingBottom">16dp</item>
-    </style>
 
 </resources>
