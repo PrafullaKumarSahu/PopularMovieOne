@@ -1,6 +1,5 @@
 package com.android.serverwarrior.popularmoviesone;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -19,7 +18,7 @@ import java.util.List;
 /**
  * A placeholder container containing a simple view.
  */
-public class MovieListFragment extends Fragment {
+public class MovieListFragment extends Fragment  implements SharedPreferences.OnSharedPreferenceChangeListener {
 
     //private final String LOG_TAG = MovieListFragment.class.getSimpleName();
     final static int REQ_CODE = 1;
@@ -44,6 +43,8 @@ public class MovieListFragment extends Fragment {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
         prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        PreferenceManager.getDefaultSharedPreferences(getActivity().getBaseContext())
+                .registerOnSharedPreferenceChangeListener(this);
 
         sortOrder = prefs.getString(getString(R.string.sort_array_key), getString(R.string.display_preferences_sort_default_value));
 
@@ -57,6 +58,15 @@ public class MovieListFragment extends Fragment {
 
 
     @Override
+    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+        if(key.equals(getString(R.string.sort_array_key))){
+            String prefSortOrder = prefs.getString(getString(R.string.sort_array_key), getString(R.string.display_preferences_sort_default_value));
+            sortOrder = prefSortOrder;
+            getMovies();
+        }
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         //int id = item.getItemId();
        // return super.onOptionsItemSelected(item);
@@ -65,8 +75,8 @@ public class MovieListFragment extends Fragment {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-             //startActivity(new Intent(this, SettingsActivity.class));
-            startActivityForResult(new Intent(getActivity(), SettingsActivity.class), REQ_CODE);
+            startActivity(new Intent(getActivity(), SettingsActivity.class));
+            //startActivityForResult(new Intent(getActivity(), SettingsActivity.class), REQ_CODE);
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -112,7 +122,7 @@ public class MovieListFragment extends Fragment {
         }
     }
 
-    @Override
+ /*   @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         String prefSortOrder = prefs.getString(getString(R.string.sort_array_key), getString(R.string.display_preferences_sort_default_value));
@@ -123,7 +133,7 @@ public class MovieListFragment extends Fragment {
                getMovies();
            }
         }
-    }
+    }*/
 
 
     private void getMovies() {
