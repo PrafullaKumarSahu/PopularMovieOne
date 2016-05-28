@@ -114,12 +114,12 @@ public class MovieListFragment extends Fragment  implements SharedPreferences.On
 
         String prefSortOrder = prefs.getString(getString(R.string.sort_array_key), getString(R.string.display_preferences_sort_default_value));
 
-        if(movies.size() > 0 && prefSortOrder.equals(prefSortOrder)){
+      /*  if(movies.size() > 0 && prefSortOrder.equals(prefSortOrder)){
             updateMoviePosters();
-        } else{
+        } else{*/
             sortOrder = prefSortOrder;
             getMovies();
-        }
+       // }
     }
 
  /*   @Override

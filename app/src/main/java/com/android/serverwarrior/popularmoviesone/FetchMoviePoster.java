@@ -69,7 +69,7 @@ public class FetchMoviePoster extends AsyncTask<String, Void,  List<Movie>> {
 
             URL url = new URL(builtUri.toString());
 
-            Log.v( LOG_TAG, url + " endpoint" );
+           // Log.v( LOG_TAG, url + " endpoint" );
 
             urlConnection = (HttpURLConnection) url.openConnection();
             urlConnection.setRequestMethod("GET");
