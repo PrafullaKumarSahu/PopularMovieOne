@@ -18,8 +18,6 @@ public class ImageAdapter extends ArrayAdapter<String> {
     private final int layoutId;
     private final int imageViewID;
 
-
-
     public ImageAdapter(Context context, int layoutId, int imageViewID, ArrayList<String> urls){
         super(context, 0, urls);
         this.mLayoutInflater = LayoutInflater.from(context);
@@ -32,6 +30,7 @@ public class ImageAdapter extends ArrayAdapter<String> {
     public View getView(int position, View convertView, ViewGroup parent) {//not called
 
         View v = convertView;
+        
         String url;
         if(v == null){
             v = this.mLayoutInflater.inflate(this.layoutId, parent, false);
