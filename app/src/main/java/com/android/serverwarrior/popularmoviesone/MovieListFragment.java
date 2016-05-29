@@ -122,7 +122,7 @@ public class MovieListFragment extends Fragment  implements SharedPreferences.On
             }
         });
 
-        mySwipeRefreshLayout.setRefreshing(false);
+       // mySwipeRefreshLayout.setRefreshing(false);
         return rootView;
     }
 
@@ -139,7 +139,7 @@ public class MovieListFragment extends Fragment  implements SharedPreferences.On
             getMovies();
        // }
     }
-    
+
  /*   @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
