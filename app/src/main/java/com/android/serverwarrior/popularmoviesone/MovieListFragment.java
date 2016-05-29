@@ -85,7 +85,6 @@ public class MovieListFragment extends Fragment  implements SharedPreferences.On
                 updateMoviePosters();
                 return true;
             }
-            mySwipeRefreshLayout.setRefreshing(false);
         }
         return super.onOptionsItemSelected(item);
     }
@@ -118,9 +117,12 @@ public class MovieListFragment extends Fragment  implements SharedPreferences.On
         mySwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
+                //Log.v("calling", "onrefresh");
                 updateMoviePosters();
             }
         });
+
+        mySwipeRefreshLayout.setRefreshing(false);
         return rootView;
     }
 
@@ -137,7 +139,7 @@ public class MovieListFragment extends Fragment  implements SharedPreferences.On
             getMovies();
        // }
     }
-
+    
  /*   @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -177,7 +179,7 @@ public class MovieListFragment extends Fragment  implements SharedPreferences.On
         for(Movie movie : movies) {
             mMoviePosterAdapter.add(movie.getPoster());
         }
-        mySwipeRefreshLayout.setRefreshing(false);
+        //mySwipeRefreshLayout.setRefreshing(false);
     }
 
 }

@@ -2,6 +2,7 @@ package com.android.serverwarrior.popularmoviesone;
 
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 
 import org.json.JSONArray;
@@ -28,7 +29,7 @@ public class FetchMoviePoster extends AsyncTask<String, Void,  List<Movie>> {
 
     private final String LOG_TAG = FetchMoviePoster.class.getSimpleName();
     private  final AsyncResponse delegate;
-
+    SwipeRefreshLayout mySwipeRefreshLayout;
 
 
     public FetchMoviePoster(AsyncResponse delegate){
@@ -170,6 +171,7 @@ public class FetchMoviePoster extends AsyncTask<String, Void,  List<Movie>> {
         if(movies != null){
             //return the list of movies back to the caller
             delegate.onTaskCompleted(movies);
+            mySwipeRefreshLayout.setRefreshing(false);
         }
     }
 }
