@@ -171,7 +171,9 @@ public class FetchMoviePoster extends AsyncTask<String, Void,  List<Movie>> {
         if(movies != null){
             //return the list of movies back to the caller
             delegate.onTaskCompleted(movies);
-            mySwipeRefreshLayout.setRefreshing(false);
+            if ( mySwipeRefreshLayout != null ) {
+                mySwipeRefreshLayout.setRefreshing(false);
+            }
         }
     }
 }
