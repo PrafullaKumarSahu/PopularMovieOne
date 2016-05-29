@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -32,7 +33,7 @@ public class MovieListFragment extends Fragment  implements SharedPreferences.On
 
     private final List<Movie> movies = new ArrayList<Movie>();
 
-
+    SwipeRefreshLayout mySwipeRefreshLayout;
 
     public MovieListFragment() {
         setHasOptionsMenu(true);
@@ -78,6 +79,13 @@ public class MovieListFragment extends Fragment  implements SharedPreferences.On
             startActivity(new Intent(getActivity(), SettingsActivity.class));
             //startActivityForResult(new Intent(getActivity(), SettingsActivity.class), REQ_CODE);
             return true;
+        }else{
+            if( id == R.id.menu_refresh  ){
+                mySwipeRefreshLayout.setRefreshing(true);
+                updateMoviePosters();
+                return true;
+            }
+            mySwipeRefreshLayout.setRefreshing(false);
         }
         return super.onOptionsItemSelected(item);
     }
@@ -103,6 +111,14 @@ public class MovieListFragment extends Fragment  implements SharedPreferences.On
                 Intent intent = new Intent(getActivity(), MovieDetailActivity.class)
                         .putExtra("movies_details", details);
                 startActivity(intent);
+            }
+        });
+
+        mySwipeRefreshLayout = (SwipeRefreshLayout)rootView.findViewById( R.id.swiperefresh );
+        mySwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                updateMoviePosters();
             }
         });
         return rootView;
@@ -161,6 +177,7 @@ public class MovieListFragment extends Fragment  implements SharedPreferences.On
         for(Movie movie : movies) {
             mMoviePosterAdapter.add(movie.getPoster());
         }
+        mySwipeRefreshLayout.setRefreshing(false);
     }
 
 }
