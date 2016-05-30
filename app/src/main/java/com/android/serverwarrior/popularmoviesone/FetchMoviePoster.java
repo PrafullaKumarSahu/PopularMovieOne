@@ -44,7 +44,6 @@ public class FetchMoviePoster extends AsyncTask<String, Void,  List<Movie>> {
 
     @Override
     protected List<Movie> doInBackground(String... params) {
-
         if(params.length == 0){
             return null;
         }

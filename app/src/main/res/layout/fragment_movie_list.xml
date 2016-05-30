@@ -25,16 +25,4 @@
         android:gravity="center"
         />
     </android.support.v4.widget.SwipeRefreshLayout>
-
-
-    <ScrollView
-        android:id="@android:id/empty"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/empty"
-            />
-    </ScrollView>
 </FrameLayout>

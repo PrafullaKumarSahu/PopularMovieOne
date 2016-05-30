@@ -30,7 +30,7 @@ public class ImageAdapter extends ArrayAdapter<String> {
     public View getView(int position, View convertView, ViewGroup parent) {//not called
 
         View v = convertView;
-        
+
         String url;
         if(v == null){
             v = this.mLayoutInflater.inflate(this.layoutId, parent, false);
