@@ -122,7 +122,7 @@ public class MovieListFragment extends Fragment  implements SharedPreferences.On
     }
 
     private void getMovies() {
-       fetchMoviePoster = new FetchMoviePoster(new AsyncResponse() {
+       fetchMoviePoster = new FetchMoviePoster( mySwipeRefreshLayout, new AsyncResponse() {
            @Override
            public void onTaskCompleted(List<Movie> results) {
                movies.clear();
@@ -147,5 +147,4 @@ public class MovieListFragment extends Fragment  implements SharedPreferences.On
             mMoviePosterAdapter.add(movie.getPoster());
         }
     }
-
 }

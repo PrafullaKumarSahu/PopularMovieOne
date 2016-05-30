@@ -32,9 +32,15 @@ public class FetchMoviePoster extends AsyncTask<String, Void,  List<Movie>> {
     SwipeRefreshLayout mySwipeRefreshLayout;
 
 
-    public FetchMoviePoster(AsyncResponse delegate){
+    public FetchMoviePoster( SwipeRefreshLayout swipeRefreshLayout, AsyncResponse delegate )
+    {
         this.delegate = delegate;
+        this.mySwipeRefreshLayout = swipeRefreshLayout;
     }
+
+  /*  public FetchMoviePoster(AsyncResponse delegate){
+        this.delegate = delegate;
+    }*/
 
     @Override
     protected List<Movie> doInBackground(String... params) {
@@ -160,8 +166,8 @@ public class FetchMoviePoster extends AsyncTask<String, Void,  List<Movie>> {
         if(movies != null){
             //return the list of movies back to the caller
             delegate.onTaskCompleted(movies);
-            if ( mySwipeRefreshLayout != null ){
-                mySwipeRefreshLayout.setRefreshing(false);
+            if ( this.mySwipeRefreshLayout != null ){
+                this.mySwipeRefreshLayout.setRefreshing(false);
             }
         }
 
@@ -170,8 +176,8 @@ public class FetchMoviePoster extends AsyncTask<String, Void,  List<Movie>> {
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
-        if ( mySwipeRefreshLayout != null ) {
-            mySwipeRefreshLayout.setRefreshing(true);
+        if ( this.mySwipeRefreshLayout != null ) {
+            this.mySwipeRefreshLayout.setRefreshing(true);
         }
     }
 }
