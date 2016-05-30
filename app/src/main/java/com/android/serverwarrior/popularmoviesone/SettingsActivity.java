@@ -96,14 +96,6 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
 
     }
 
-  /*  @Override
-    public void onBackPressed() {
-        Intent intent = new Intent();
-        setResult(RESULT_OK, intent);
-        super.onBackPressed();
-        finish();
-    }
-*/
     @Override
     public boolean onMenuItemSelected(int featureId, MenuItem item) {
         int id = item.getItemId();

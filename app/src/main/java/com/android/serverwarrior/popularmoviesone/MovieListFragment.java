@@ -33,6 +33,8 @@ public class MovieListFragment extends Fragment  implements SharedPreferences.On
 
     private final List<Movie> movies = new ArrayList<Movie>();
 
+    FetchMoviePoster fetchMoviePoster;
+
     SwipeRefreshLayout mySwipeRefreshLayout;
 
     public MovieListFragment() {
@@ -69,22 +71,11 @@ public class MovieListFragment extends Fragment  implements SharedPreferences.On
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        //int id = item.getItemId();
-       // return super.onOptionsItemSelected(item);
-
         int id = item.getItemId();
-
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             startActivity(new Intent(getActivity(), SettingsActivity.class));
-            //startActivityForResult(new Intent(getActivity(), SettingsActivity.class), REQ_CODE);
             return true;
-        }else{
-            if( id == R.id.menu_refresh  ){
-                mySwipeRefreshLayout.setRefreshing(true);
-                updateMoviePosters();
-                return true;
-            }
         }
         return super.onOptionsItemSelected(item);
     }
@@ -112,50 +103,26 @@ public class MovieListFragment extends Fragment  implements SharedPreferences.On
                 startActivity(intent);
             }
         });
-
-        mySwipeRefreshLayout = (SwipeRefreshLayout)rootView.findViewById( R.id.swiperefresh );
+        mySwipeRefreshLayout = ( SwipeRefreshLayout ) rootView.findViewById(R.id.swiperefresh);
         mySwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                //Log.v("calling", "onrefresh");
-                updateMoviePosters();
-            }
+                getMovies();
+        }
         });
-
-       // mySwipeRefreshLayout.setRefreshing(false);
         return rootView;
     }
 
     @Override
     public void onStart() {
         super.onStart();
-
         String prefSortOrder = prefs.getString(getString(R.string.sort_array_key), getString(R.string.display_preferences_sort_default_value));
-
-      /*  if(movies.size() > 0 && prefSortOrder.equals(prefSortOrder)){
-            updateMoviePosters();
-        } else{*/
-            sortOrder = prefSortOrder;
-            getMovies();
-       // }
+        sortOrder = prefSortOrder;
+        getMovies();
     }
 
- /*   @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        String prefSortOrder = prefs.getString(getString(R.string.sort_array_key), getString(R.string.display_preferences_sort_default_value));
-        if (requestCode == REQ_CODE) {
-            // Make sure the request was successful
-           if (resultCode == Activity.RESULT_OK) {
-               sortOrder = prefSortOrder;
-               getMovies();
-           }
-        }
-    }*/
-
-
     private void getMovies() {
-       FetchMoviePoster fetchMoviePoster = new FetchMoviePoster(new AsyncResponse() {
+       fetchMoviePoster = new FetchMoviePoster(new AsyncResponse() {
            @Override
            public void onTaskCompleted(List<Movie> results) {
                movies.clear();
@@ -179,7 +146,6 @@ public class MovieListFragment extends Fragment  implements SharedPreferences.On
         for(Movie movie : movies) {
             mMoviePosterAdapter.add(movie.getPoster());
         }
-        //mySwipeRefreshLayout.setRefreshing(false);
     }
 
 }

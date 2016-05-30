@@ -50,27 +50,16 @@ public class FetchMoviePoster extends AsyncTask<String, Void,  List<Movie>> {
 
         try {
             final String APIKEY = BuildConfig.MOVIE_DB_API_KEY;
-            //final String BASE_URL = "http://api.themoviedb.org/3/discover/movie?";
-            //final String SORT_BY = "sort_by";
-            //final String KEY = "api_key";
             final String BASE_URL = "http://api.themoviedb.org/3/movie/";
-           // final String SORT_BY = "popular";
             final String KEY = "api_key";
-
             String sortBy = params[0];
 
-            /*Uri builtUri = Uri.parse(BASE_URL).buildUpon()
-                    .appendQueryParameter(SORT_BY, sortBy)
-                    .appendQueryParameter(KEY, APIKEY)
-                    .build();*/
             String FINAL_URL = BASE_URL  + sortBy;
             Uri builtUri = Uri.parse(FINAL_URL).buildUpon()
                     .appendQueryParameter(KEY, APIKEY)
                     .build();
 
             URL url = new URL(builtUri.toString());
-
-           // Log.v( LOG_TAG, url + " endpoint" );
 
             urlConnection = (HttpURLConnection) url.openConnection();
             urlConnection.setRequestMethod("GET");
@@ -171,9 +160,18 @@ public class FetchMoviePoster extends AsyncTask<String, Void,  List<Movie>> {
         if(movies != null){
             //return the list of movies back to the caller
             delegate.onTaskCompleted(movies);
-            if ( mySwipeRefreshLayout != null ) {
+            if ( mySwipeRefreshLayout != null ){
                 mySwipeRefreshLayout.setRefreshing(false);
             }
+        }
+
+    }
+
+    @Override
+    protected void onPreExecute() {
+        super.onPreExecute();
+        if ( mySwipeRefreshLayout != null ) {
+            mySwipeRefreshLayout.setRefreshing(true);
         }
     }
 }
