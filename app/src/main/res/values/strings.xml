@@ -15,4 +15,5 @@
     <string name="display_preferences_sort_default_value">popular</string>
     <string name="popular_movies">Popular movies</string>
     <string name="menu_refresh">Refresh</string>
+    <string name="empty_list">Try Again</string>
 </resources>

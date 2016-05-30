@@ -108,7 +108,7 @@ public class MovieListFragment extends Fragment  implements SharedPreferences.On
             @Override
             public void onRefresh() {
                 getMovies();
-        }
+            }
         });
         return rootView;
     }
